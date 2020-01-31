@@ -22,4 +22,6 @@ MonoBehaviour:
 
     2. God knows what that
     is! Pull your hand back and move further into the darkness.'
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: 8cc9b3c2c8826d44c8fbf7e13dfb57e9, type: 2}
+  - {fileID: 0}

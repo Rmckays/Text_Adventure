@@ -7,6 +7,7 @@ public class AdventureGame : MonoBehaviour
 {
     [SerializeField] Text textComponent;
     [SerializeField] State startingState;
+    [SerializeField] bool gameOver = false;
 
     State state;
     State[] nextStates;
@@ -22,16 +23,45 @@ public class AdventureGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+        ManageState();
+    }
+
+    private void ManageState()
+    {
+        if (textComponent.text == "Game Over")
         {
-            state = nextStates[0];
-            textComponent.text = state.GetStateStory();
+            gameOver = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        if (gameOver && Input.GetKeyDown(KeyCode.Return))
+        {
+            ResetGame();
+        }
+        
+        if ((Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1)) && !gameOver)
+        {
+            state = nextStates[0];
+            UpdateState();
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && nextStates[1] && !gameOver)
         {
             state = nextStates[1];
-            textComponent.text = state.GetStateStory();
+            UpdateState();
         }
+
+        
+    }
+
+    private void UpdateState()
+    {
+        textComponent.text = state.GetStateStory();
+        nextStates = state.GetNextStates();
+    }
+
+    private void ResetGame()
+    {
+        state = startingState;
+        UpdateState();
     }
 }
