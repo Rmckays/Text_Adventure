@@ -23,3 +23,6 @@ MonoBehaviour:
 
     2. Continue to fumble around on your hands and knees
     in the darkness.'
+  nextStates:
+  - {fileID: 0}
+  - {fileID: 0}
