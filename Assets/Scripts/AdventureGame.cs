@@ -28,10 +28,7 @@ public class AdventureGame : MonoBehaviour
 
     private void ManageState()
     {
-        if (textComponent.text == "Game Over")
-        {
-            gameOver = true;
-        }
+        gameOver = state.GetGameOver();
 
         if (gameOver && Input.GetKeyDown(KeyCode.Return))
         {
@@ -43,8 +40,7 @@ public class AdventureGame : MonoBehaviour
             state = nextStates[0];
             UpdateState();
         }
-
-        if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && nextStates[1] && !gameOver)
+        else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && nextStates[1] && !gameOver)
         {
             state = nextStates[1];
             UpdateState();

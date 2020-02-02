@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 3775665d695e1ae4db08cb49f7d0389c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Uncial Antiqua
+  fontNames:
+  - Uncial Antiqua
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1c8359f4059775e4ea287a82eb09a761, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

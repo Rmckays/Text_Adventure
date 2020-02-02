@@ -7,6 +7,7 @@ public class State : ScriptableObject
 {
     [TextArea(10,14)] [SerializeField] string storyText;
     [SerializeField] State[] nextStates;
+    [SerializeField] bool gameOver;
 
     public string GetStateStory()
     {
@@ -16,5 +17,10 @@ public class State : ScriptableObject
     public State[] GetNextStates()
     {
         return nextStates;
+    }
+
+    public bool GetGameOver()
+    {
+        return gameOver;
     }
 }
