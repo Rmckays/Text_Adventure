@@ -28,25 +28,21 @@ public class AdventureGame : MonoBehaviour
 
     private void ManageState()
     {
+        var nextStates = state.GetNextStates();
         gameOver = state.GetGameOver();
-
+        for (int index = 0; index < nextStates.Length; index++)
+        {
+            if ((Input.GetKeyDown(KeyCode.Keypad1 + index) || Input.GetKeyDown(KeyCode.Alpha1 + index)) && !gameOver)
+            {
+                state = nextStates[index];
+                UpdateState();
+            }
+        }
+        
         if (gameOver && Input.GetKeyDown(KeyCode.Return))
         {
             ResetGame();
         }
-        
-        if ((Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1)) && !gameOver)
-        {
-            state = nextStates[0];
-            UpdateState();
-        }
-        else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && nextStates[1] && !gameOver)
-        {
-            state = nextStates[1];
-            UpdateState();
-        }
-
-        
     }
 
     private void UpdateState()
